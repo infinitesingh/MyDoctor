@@ -27,6 +27,15 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+.select-group{
+    width: 100%;
+padding: 1rem 3rem;
+font-size: 1rem;
+background-color: var(--gray);
+border-radius: .5rem;
+border: 0.125rem solid var(--white);
+outline: none;
+}
 
 .container {
     position: relative;
@@ -344,3 +353,4 @@ body {
         font-size: 2rem;
     }
 }
+

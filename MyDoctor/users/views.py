@@ -15,19 +15,16 @@ def signin_signup_view(request):
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-        
         if form.is_valid():
             user = form.save()
             logger.info(f"form is %s",user)
             login(request, user)
-            if user.role == 'clinic_admin':
-                return redirect('clinic_dashboard')  # Redirect Clinic Admin to their dashboard
             return redirect('home')  # Redirect to homepage or clinic dashboard based on role
         else:
             logger.info("invalid form")
     else:
         form = CustomUserCreationForm()
-    return render(request, 'users/signin_signup.html', {'form': form})
+    return render(request, 'users/signin_signup.html', {'signup_form': form})
 
 
 from django.contrib.auth.views import LoginView
