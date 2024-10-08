@@ -172,3 +172,11 @@ LOGGING = {
         },
     },
 }
+
+
+
+
+
+# URLs Configurations:
+
+LOGIN_URL = 'login'

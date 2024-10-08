@@ -1,22 +1,21 @@
+# users/forms.py
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
 
 class CustomUserCreationForm(UserCreationForm):
-    city = forms.ChoiceField(
-        choices=[('city1', 'SLN'), ('city2', 'LKO'), ('city3', 'AYD')],
-        required=True,
-        widget=forms.Select(attrs={'class': 'select-group', 'placeholder': 'City'})
-    )
-    email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'class': 'input-group', 'placeholder': 'Email'})
-    )
-
-    class Meta(UserCreationForm.Meta):
+    email = forms.EmailField()
+    fullname = forms.CharField(max_length=255, required=True, label="Full Name")
+    city = forms.ChoiceField(choices=[
+        ('', 'Select your city'),
+        ('New York', 'New York'),
+        ('Los Angeles', 'Los Angeles'),
+        ('Chicago', 'Chicago'),
+        # Add more cities as required
+    ], required=True, label="City")
+    class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2', 'city']
-        widgets = {
-            'username': forms.TextInput(attrs={'class': 'input-group','placeholder': 'Username'}),
-            'password1': forms.PasswordInput(attrs={'class': 'input-group', 'placeholder': 'Password'}),
-            'password2': forms.PasswordInput(attrs={'class': 'input-group', 'placeholder': 'Confirm password'}),
-        }
+        fields = ['fullname','username', 'email', 'password1', 'password2']
