@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to the Clinic Booking Platform{% endblock %}
+
+{% block content %}
+  <section id="landing">
+    <div class="hero">
+      <h1>Find the Best Clinics Near You</h1>
+      <p>Book appointments with top clinics and specialists in your city.</p>
+      <div class="cta-buttons">
+        <a href="{% url 'register' %}" class="btn">Register Now</a>
+        <a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works">
+    <h2>How It Works</h2>
+    <p>Search for clinics, choose the best available slots, and book your appointment quickly and securely.</p>
+    <ul>
+      <li>Step 1: Register or Login</li>
+      <li>Step 2: Search clinics by city, doctor, or medical specialty</li>
+      <li>Step 3: Choose an available appointment slot and confirm your booking</li>
+    </ul>
+  </section>
+{% endblock %}

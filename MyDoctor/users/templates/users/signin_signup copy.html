@@ -1,0 +1,209 @@
+{% load static %}  
+{% block content %}
+
+<div id="container" class="container">
+    <!-- FORM SECTION -->
+    <div class="row">
+        <!-- SIGN UP -->
+        <div class="col align-items-center flex-col sign-up">
+            <div class="form-wrapper align-items-center">
+                <div class="form">
+                    <h2>Sign Up</h2>
+                    <form method="POST" action="{% url 'register' %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            {{ signup_form.username }}
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bx-mail-send'></i>
+                            {{ signup_form.email }}
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            {{ signup_form.password1 }}
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            {{ signup_form.password2 }}
+                        </div>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                    <p>
+                        <span>Already have an account?</span>
+                        <b class="pointer" onclick="toggle()">Sign in here</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIGN IN -->
+        <div class="col align-items-center flex-col sign-in">
+            <div class="form-wrapper align-items-center">
+                <div class="form">
+                    <h2>Login</h2>
+                    <form method="POST" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            {{ login_form.username }}
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            {{ login_form.password }}
+                        </div>
+                        <button type="submit">Sign in</button>
+                    </form>
+                    <p>
+                        <b>Forgot password?</b>
+                    </p>
+                    <p>
+                        <span>Don't have an account?</span>
+                        <b class="pointer" onclick="toggle()">Sign up here</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT SECTION -->
+    <div class="row content-row">
+        <!-- SIGN IN CONTENT -->
+        <div class="col align-items-center flex-col sign-in-content">
+            <div class="text">
+                <h2>Welcome Back!</h2>
+                <p>Login to continue your journey.</p>
+            </div>
+        </div>
+        <!-- SIGN UP CONTENT -->
+        <div class="col align-items-center flex-col sign-up-content">
+            <div class="text">
+                <h2>Join with Us</h2>
+                <p>Create an account and join the community.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<!-- Link to your external CSS -->
+<link rel="stylesheet" href="{% static 'users/css/signin_signup.css' %}">
+
+<!-- Add JavaScript for Toggle Functionality -->
+<script src="{% static 'users/js/signin_signup.js' %}"></script>
+
+{% endblock %}
+
+
+
+#########################
+
+<div id="container" class="container">
+    <!-- FORM SECTION -->
+    <div class="row">
+        <!-- SIGN UP -->
+        <div class="col align-items-center flex-col sign-up">
+            <div class="form-wrapper align-items-center">
+                <div class="form sign-up">
+                    <div class="input-group">
+                        <i class='bx bxs-user'></i>
+                        <input type="text" placeholder="Username">
+                    </div>
+                    <div class="input-group">
+                        <i class='bx bx-mail-send'></i>
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                        <i class='bx bxs-lock-alt'></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <div class="input-group">
+                        <i class='bx bxs-lock-alt'></i>
+                        <input type="password" placeholder="Confirm password">
+                    </div>
+                    <button>
+                        Sign up
+                    </button>
+                    <p>
+                        <span>
+                            Already have an account?
+                        </span>
+                        <b onclick="toggle()" class="pointer">
+                            Sign in here
+                        </b>
+                    </p>
+                </div>
+            </div>
+        
+        </div>
+        <!-- END SIGN UP -->
+        <!-- SIGN IN -->
+        <div class="col align-items-center flex-col sign-in">
+            <div class="form-wrapper align-items-center">
+                <div class="form sign-in">
+                    <div class="input-group">
+                        <i class='bx bxs-user'></i>
+                        <input type="text" placeholder="Username">
+                    </div>
+                    <div class="input-group">
+                        <i class='bx bxs-lock-alt'></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <button>
+                        Sign in
+                    </button>
+                    <p>
+                        <b>
+                            Forgot password?
+                        </b>
+                    </p>
+                    <p>
+                        <span>
+                            Don't have an account?
+                        </span>
+                        <b onclick="toggle()" class="pointer">
+                            Sign up here
+                        </b>
+                    </p>
+                </div>
+            </div>
+            <div class="form-wrapper">
+    
+            </div>
+        </div>
+        <!-- END SIGN IN -->
+    </div>
+    <!-- END FORM SECTION -->
+    <!-- CONTENT SECTION -->
+    <div class="row content-row">
+        <!-- SIGN IN CONTENT -->
+        <div class="col align-items-center flex-col">
+            <div class="text sign-in">
+                <h2>
+                    Welcome
+                </h2>
+
+            </div>
+            <div class="img sign-in">
+    
+            </div>
+        </div>
+        <!-- END SIGN IN CONTENT -->
+        <!-- SIGN UP CONTENT -->
+        <div class="col align-items-center flex-col">
+            <div class="img sign-up">
+            
+            </div>
+            <div class="text sign-up">
+                <h2>
+                    Join with us
+                </h2>
+
+            </div>
+        </div>
+        <!-- END SIGN UP CONTENT -->
+    </div>
+    <!-- END CONTENT SECTION -->
+</div>
