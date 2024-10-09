@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',homePage, name = 'home'),
     path('users/', include('users.urls')),  # Add this to include users app URLs
-    path('', include('clinics.urls')),      # Homepage or other apps
+    path('clinics/', include('clinics.urls')),      # Homepage or other apps
 
 ]
 

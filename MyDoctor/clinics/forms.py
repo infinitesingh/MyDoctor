@@ -1,10 +1,12 @@
 from django import forms
-from .models import Clinic, Expertise
+from .models import Clinic
 
 class ClinicRegistrationForm(forms.ModelForm):
-    expertise = forms.ModelMultipleChoiceField(queryset=Expertise.objects.all(), widget=forms.CheckboxSelectMultiple)
-    city = forms.ChoiceField(choices=[('city1', 'City 1'), ('city2', 'City 2')])
-
     class Meta:
         model = Clinic
-        fields = ['name', 'city', 'expertise', 'address', 'description']
+        fields = ['name', 'registrationNo','address_line_1', 'address_line_2', 'city', 'state', 'zipcode', 'expertise', 'phone_number', 'email', 'latitude', 'longitude']
+
+        widgets = {
+            'latitude': forms.HiddenInput(),
+            'longitude': forms.HiddenInput(),
+        }

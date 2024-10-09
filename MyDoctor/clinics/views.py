@@ -15,3 +15,6 @@ def register_clinic(request):
     else:
         form = ClinicRegistrationForm()
     return render(request, 'clinics/register.html', {'form': form})
+
+def nearbyClinics(request):
+    return render(request,'nearbyclinics.html')

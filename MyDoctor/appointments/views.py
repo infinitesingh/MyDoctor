@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 # Create your views here.
 from django.shortcuts import render, get_object_or_404
 
-from MyDoctor.clinics.models import Clinic
+from clinics.models import Clinic
 from .models import Appointment
 
 def book_appointment(request, clinic_id):
